@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Example-1</title>
+</head>
+<body>
+    
+        <form action="/" method= "POST" id ="form">
+            <div class= "form-group">
+                <label for = "email">Email-id: </label>
+                <input type= "email" class = "form-control">
+            </div>
+            <div class= "form-group">
+                <label for = "password">password: </label>
+                <input type= "password" class = "form-control">
+            </div>
+            <button type= "submit" class="button">Submit</button>
+        </form>
+
+        <script src='https://code.jquery.com/jquery-3.4.1.min.js'></script>
+        <script>
+            $(document).ready(()=>{
+                $('$form').submit((e)=>{
+                    e.preventDefault();
+                    $.ajax({
+                        url : '/',
+                        type : 'POST',
+                        contentType : 'application/json',
+                        data : JSON.stringify($('#form').serializeArray()),
+                        success : (response)=>{
+                            console.log("Response saved succesfully!!");
+                            console.log(response);
+                        }
+                    });
+                });
+            });
+        </script>
+</body>
+</html>

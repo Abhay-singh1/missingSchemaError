@@ -3,9 +3,11 @@ const connectDb = require('C:\\Users\\abhay\\FIRSTAPP\\config\\db.js');
 const os = require('os');
 const fs = require('fs');
 const app = express();
+console.log('no error!')
 connectDb();
-
+console.log('db error!')
 app.use(express.json({extended: false}));
+console.log('o error!')
 app.get('/',(req,res) => {
     res.send('API RUNNING')
 });
